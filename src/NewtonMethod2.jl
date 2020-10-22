@@ -1,4 +1,4 @@
-module NewtonMethod
+module NewtonMethod2
 
 using LinearAlgebra, Statistics, ForwardDiff
 
@@ -23,7 +23,7 @@ end
 export newtonroot
 
 
-###
+
 
 
 function newtonroot2(f; x0, tol=1E-7, maxiter=1000)
