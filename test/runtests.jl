@@ -67,5 +67,14 @@ t3=newtonroot2(f; x0, tol=1E-7, maxiter=1000)[2]
 @test t2 <= 1E-7
 @test t3 <= 1E-7
 
+### try break a test
+f(x)=x^2+2*x-3
+f_prime(x)=2*x+2
+x0=2.0
+t2=newtonroot(f, f_prime; x0, tol=1E-7, maxiter=1000)[2]
+t3=newtonroot2(f; x0, tol=1E-7, maxiter=1000)[2]
+@test t2 <= 1E-7
+@test t3 > 1E-7
+
 
 end
