@@ -41,6 +41,31 @@ t5=newtonroot2(f; x0=BigFloat(x0), tol=1E-7, maxiter=1000)[1]
 @test t5 ≈ 2.0
 
 ### 5
+f(x)=2+x^2
+f_prime(x)=2*x
+x0=1.0
+t2=newtonroot(f, f_prime; x0, tol=1E-7, maxiter=1000)[1]
+t3=newtonroot2(f; x0, tol=1E-7, maxiter=1000)[1]
+@test t2 == nothing
+@test t3 == nothing
+
+### 6
+f(x)=x^2+2*x-3
+f_prime(x)=2*x+2
+x0=2.0
+t2=newtonroot(f, f_prime; x0, tol=1E-7, maxiter=3)[1]
+t3=newtonroot2(f; x0, tol=1E-7, maxiter=3)[1]
+@test t2 == nothing
+@test t3 == nothing
+
+### 7
+f(x)=x^2+2*x-3
+f_prime(x)=2*x+2
+x0=2.0
+t2=newtonroot(f, f_prime; x0, tol=1E-7, maxiter=1000)[2]
+t3=newtonroot2(f; x0, tol=1E-7, maxiter=1000)[2]
+@test t2 <= 1E-7
+@test t3 <= 1E-7
 
 
 end
